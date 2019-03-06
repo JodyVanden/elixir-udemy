@@ -1,8 +1,19 @@
-defmodule CardTest do
+defmodule CardsTest do
   use ExUnit.Case
-  doctest Card
+  doctest Cards
 
-  test "greets the world" do
-    assert Card.hello() == :world
+  test "create_dec makes 20 cards" do
+    deck_length = length(Cards.create_deck)
+    assert deck_length == 20
   end
+
+  test "shuffling a deck randomizes it" do
+    deck = Cards.create_deck
+    refute deck == Cards.shuffle(deck)
+  end
+
+
+  # test "greets the world" do
+  #   assert Card.hello() == :world
+  # end
 end
